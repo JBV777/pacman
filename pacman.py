@@ -21,5 +21,15 @@ for eachline in range(4):
 # hides the triangle used to draw boundaries
 boundary.hideturtle()
 
+#creating pacman
+protagonist=turtle.Turtle()
+protagonist.color("yellow")
+protagonist.setposition(0,0)
+protagonist.shape("circle")
+protagonist.penup()
+
+
+
+
 
 turtle.mainloop()
