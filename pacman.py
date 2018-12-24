@@ -8,6 +8,9 @@ game=turtle.Screen()
 game.bgcolor("black")
 game.title("Pacman")
 
+movementspeed=20
+border=280
+
 boundary=turtle.Turtle()
 boundary.speed(0)
 boundary.color("white")
@@ -29,6 +32,40 @@ protagonist.shape("circle")
 protagonist.penup()
 
 
+def lef():
+    x=protagonist.xcor()
+    x -= movementspeed
+    if x<=-border:
+        x=-border
+    protagonist.setx(x)
+
+def rig():
+    x=protagonist.xcor()
+    x += movementspeed
+    if x>=border:
+        x=border
+    protagonist.setx(x)
+
+def up():
+    y=protagonist.ycor()
+    y += movementspeed
+    if y>=border:
+        y=border
+    protagonist.sety(y)
+
+def down():
+    y=protagonist.ycor()
+    y -= movementspeed
+    if y<=-border:
+        y=-border
+    protagonist.sety(y)
+
+#creating keyboard functions
+turtle.listen()
+turtle.onkey(lef,"Left")
+turtle.onkey(rig,"Right")
+turtle.onkey(up,"Up")
+turtle.onkey(down,"Down")
 
 
 
