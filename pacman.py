@@ -32,6 +32,15 @@ protagonist.penup()
 protagonist.speed(0)
 protagonist.setposition(0,-150)
 
+#creating an enemy
+enemyone=turtle.Turtle()
+enemyone.color("red")
+enemyone.shape("triangle")
+enemyone.penup()
+enemyone.speed(0)
+enemyone.setposition(-150,150)
+enemyone.setheading(270)
+
 #adds methods that allows player to move
 def lef():
     x=protagonist.xcor()
