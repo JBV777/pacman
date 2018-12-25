@@ -7,6 +7,7 @@ import random
 game=turtle.Screen()
 game.bgcolor("black")
 game.title("Pacman")
+randomnumone=random.randint(0,1)
 
 movementspeed=20
 border=280
@@ -40,6 +41,7 @@ enemyone.penup()
 enemyone.speed(0)
 enemyone.setposition(-150,150)
 enemyone.setheading(270)
+
 
 #adds methods that allows player to move
 def lef():
@@ -79,4 +81,28 @@ turtle.onkey(down,"Down")
 
 
 
-turtle.mainloop()
+while True:
+    # enemy one converges onto pacman's x location
+    if (randomnumone==0 or enemyone.ycor()==protagonist.ycor()):
+        enemyonehorizontallocation=enemyone.xcor()
+        if (enemyonehorizontallocation<protagonist.xcor()):
+            enemyonehorizontallocation+=1
+            enemyone.setx(enemyonehorizontallocation)
+        elif (enemyonehorizontallocation>protagonist.xcor()):
+            enemyonehorizontallocation-=1
+            enemyone.setx(enemyonehorizontallocation)
+        else:
+            enemyone.setx(protagonist.xcor())
+    # enemy one converges onto pacman's y location
+    elif (randomnumone==1 or enemyone.xcor()==protagonist.xcor()):
+        enemyoneverticallocation=enemyone.ycor()
+        if (enemyoneverticallocation<protagonist.ycor()):
+            enemyoneverticallocation+=1
+            enemyone.sety(enemyoneverticallocation)
+        elif (enemyoneverticallocation>protagonist.ycor()):
+            enemyoneverticallocation-=1
+            enemyone.sety(enemyoneverticallocation)
+        else:
+            enemyone.sety(protagonist.ycor())
+
+
