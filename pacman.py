@@ -27,11 +27,12 @@ boundary.hideturtle()
 #creating pacman
 protagonist=turtle.Turtle()
 protagonist.color("yellow")
-protagonist.setposition(0,0)
 protagonist.shape("circle")
 protagonist.penup()
+protagonist.speed(0)
+protagonist.setposition(0,-150)
 
-
+#adds methods that allows player to move
 def lef():
     x=protagonist.xcor()
     x -= movementspeed
