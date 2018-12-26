@@ -8,6 +8,10 @@ game=turtle.Screen()
 game.bgcolor("black")
 game.title("Pacman")
 randomnumone=random.randint(0,1)
+randomnumtwo=random.randint(0,1)
+randomnumthree=random.randint(0,1)
+randomnumfour=random.randint(0,1)
+
 
 movementspeed=20
 border=280
@@ -132,6 +136,7 @@ while True:
         else:
             enemyone.sety(protagonist.ycor())
 
+
     # game over screen :(
     if (enemyone.xcor()==protagonist.xcor() and enemyone.ycor()==protagonist.ycor()):
         gameover=turtle.Turtle()
@@ -140,3 +145,7 @@ while True:
         gameover.penup()
         gameover.setposition(0,0)
         gameover.write("Game over",False,align="center",font=("Arial",20,"normal"))
+        turtle.onkey(None, "Left")
+        turtle.onkey(None, "Right")
+        turtle.onkey(None, "Up")
+        turtle.onkey(None, "Down")
