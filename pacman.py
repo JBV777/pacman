@@ -33,7 +33,7 @@ protagonist.penup()
 protagonist.speed(0)
 protagonist.setposition(0,-150)
 
-#creating an enemy
+#creating first enemy
 enemyone=turtle.Turtle()
 enemyone.color("red")
 enemyone.shape("triangle")
@@ -41,6 +41,33 @@ enemyone.penup()
 enemyone.speed(0)
 enemyone.setposition(-150,150)
 enemyone.setheading(270)
+
+#create second enemy
+enemytwo=turtle.Turtle()
+enemytwo.color("pink")
+enemytwo.shape("triangle")
+enemytwo.penup()
+enemytwo.speed(0)
+enemytwo.setposition(-50,150)
+enemytwo.setheading(270)
+
+# create third enemy
+enemythree=turtle.Turtle()
+enemythree.color("light blue")
+enemythree.shape("triangle")
+enemythree.penup()
+enemythree.speed(0)
+enemythree.setposition(50,150)
+enemythree.setheading(270)
+
+# create fourth enemy
+enemyfour=turtle.Turtle()
+enemyfour.color("orange")
+enemyfour.shape("triangle")
+enemyfour.penup()
+enemyfour.speed(0)
+enemyfour.setposition(150,150)
+enemyfour.setheading(270)
 
 
 #adds methods that allows player to move
