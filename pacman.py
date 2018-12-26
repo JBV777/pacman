@@ -94,7 +94,7 @@ while True:
         else:
             enemyone.setx(protagonist.xcor())
     # enemy one converges onto pacman's y location
-    elif (randomnumone==1 or enemyone.xcor()==protagonist.xcor()):
+    if (randomnumone==1 or enemyone.xcor()==protagonist.xcor()):
         enemyoneverticallocation=enemyone.ycor()
         if (enemyoneverticallocation<protagonist.ycor()):
             enemyoneverticallocation+=1
@@ -105,4 +105,11 @@ while True:
         else:
             enemyone.sety(protagonist.ycor())
 
-
+    # game over screen :(
+    if (enemyone.xcor()==protagonist.xcor() and enemyone.ycor()==protagonist.ycor()):
+        gameover=turtle.Turtle()
+        gameover.speed(0)
+        gameover.color("white")
+        gameover.penup()
+        gameover.setposition(0,0)
+        gameover.write("Game over",False,align="center",font=("Arial",20,"normal"))
