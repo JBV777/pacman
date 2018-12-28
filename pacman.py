@@ -2,6 +2,11 @@ import turtle
 import os
 import math
 import random
+from redenemy import Redenemy
+from pinkenemy import Pinkenemy
+from orangeenemy import Orangeenemy
+from blueenemy import Blueenemy
+
 
 # create a blank screen that serves as background
 game=turtle.Screen()
@@ -110,35 +115,36 @@ turtle.onkey(rig,"Right")
 turtle.onkey(up,"Up")
 turtle.onkey(down,"Down")
 
-
-
 while True:
-    # enemy one converges onto pacman's x location
-    if (randomnumone==0 or enemyone.ycor()==protagonist.ycor()):
-        enemyonehorizontallocation=enemyone.xcor()
-        if (enemyonehorizontallocation<protagonist.xcor()):
-            enemyonehorizontallocation+=1
-            enemyone.setx(enemyonehorizontallocation)
-        elif (enemyonehorizontallocation>protagonist.xcor()):
-            enemyonehorizontallocation-=1
-            enemyone.setx(enemyonehorizontallocation)
-        else:
-            enemyone.setx(protagonist.xcor())
-    # enemy one converges onto pacman's y location
-    if (randomnumone==1 or enemyone.xcor()==protagonist.xcor()):
-        enemyoneverticallocation=enemyone.ycor()
-        if (enemyoneverticallocation<protagonist.ycor()):
-            enemyoneverticallocation+=1
-            enemyone.sety(enemyoneverticallocation)
-        elif (enemyoneverticallocation>protagonist.ycor()):
-            enemyoneverticallocation-=1
-            enemyone.sety(enemyoneverticallocation)
-        else:
-            enemyone.sety(protagonist.ycor())
+    one = Redenemy(protagonist.xcor(), protagonist.ycor(), enemyone.xcor(), enemyone.ycor())
+    two = Pinkenemy(protagonist.xcor(),protagonist.ycor(),enemytwo.xcor(),enemytwo.ycor())
+    three = Orangeenemy(protagonist.xcor(),protagonist.ycor(),enemythree.xcor(),enemythree.ycor())
+    four = Blueenemy(protagonist.xcor(),protagonist.ycor(),enemyfour.xcor(),enemyfour.ycor())
+
+    if (randomnumone==0 or protagonist.ycor()==enemyone.ycor()):
+        enemyone.setx(one.xmovement())
+    if (randomnumone==1 or protagonist.xcor()==enemyone.xcor()):
+        enemyone.sety(one.ymovement())
+
+    if (randomnumtwo==0 or protagonist.ycor()==enemytwo.ycor()):
+        enemytwo.setx(two.xmovement())
+    if (randomnumtwo==1 or protagonist.xcor()==enemytwo.xcor()):
+        enemytwo.sety(two.ymovement())
+
+    if (randomnumthree==0 or protagonist.ycor()==enemythree.ycor()):
+        enemythree.setx(three.xmovement())
+    if (randomnumthree==1 or protagonist.xcor()==enemythree.xcor()):
+        enemythree.sety(three.ymovement())
+
+    if (randomnumfour==0 or protagonist.ycor()==enemyfour.ycor()):
+        enemyfour.setx(four.xmovement())
+    if (randomnumfour==1 or protagonist.xcor()==enemyfour.xcor()):
+        enemyfour.sety(four.ymovement())
+
 
 
     # game over screen :(
-    if (enemyone.xcor()==protagonist.xcor() and enemyone.ycor()==protagonist.ycor()):
+    if (one.gameover()==True or two.gameover()==True or three.gameover()==True or four.gameover()==True):
         gameover=turtle.Turtle()
         gameover.speed(0)
         gameover.color("white")
@@ -149,3 +155,4 @@ while True:
         turtle.onkey(None, "Right")
         turtle.onkey(None, "Up")
         turtle.onkey(None, "Down")
+
