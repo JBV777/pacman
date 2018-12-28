@@ -1,4 +1,5 @@
 import turtle
+import time
 import os
 import math
 import random
@@ -155,4 +156,6 @@ while True:
         turtle.onkey(None, "Right")
         turtle.onkey(None, "Up")
         turtle.onkey(None, "Down")
+        time.sleep(5)
+        exit()
 
