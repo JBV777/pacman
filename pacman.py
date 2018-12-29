@@ -35,6 +35,37 @@ for eachline in range(4):
 # hides the triangle used to draw boundaries
 boundary.hideturtle()
 
+# creating walls
+wall=turtle.Turtle()
+wall.speed(0)
+wall.color("white")
+wall.penup()
+wall.setposition(-270,-270)
+wall.pendown()
+wall.pensize(3)
+pointerx= -270
+pointery= -270
+
+#create a square wall
+while(pointery<280):
+    while (pointerx < 280):
+        for eachline in range(4):
+            wall.fd(60)
+            wall.lt(90)
+        wall.penup()
+        pointerx=pointerx+100
+        wall.setposition(pointerx,pointery)
+        wall.pendown()
+    wall.penup()
+    pointery=pointery+100
+    pointerx=-370
+    wall.setposition(pointerx,pointery)
+
+
+
+
+
+
 #creating pacman
 protagonist=turtle.Turtle()
 protagonist.color("yellow")
